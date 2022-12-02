@@ -32,23 +32,24 @@ import { CollectorPerformerModule } from './collectorperformer/collectorperforme
 import { AlbumBandModule } from './albumband/albumband.module';
 import { AlbumMusicianModule } from './albummusician/albummusician.module';
 
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DATABASE_URL && process.env.DATABASE_URL.replace('postgres://','').split(':')[1].split('@')[1] || process.env.DATABASE_URL || process.env.DB_HOST || 'dpg-ce4ocr1gp3jkq2r02c9g-a',
+      host: process.env.DB_HOST || 'dpg-ce4ocr1gp3jkq2r02c9g-a',
       port: 5432,
-      username: process.env.DATABASE_URL && process.env.DATABASE_URL.replace('postgres://','').split(':')[0] || process.env.DB_USER || 'user_vinyls',
-      password: process.env.DATABASE_URL && process.env.DATABASE_URL.replace('postgres://','').split(':')[1].split('@')[0] || process.env.DB_PASSWORD || 'kGHd9Y2d6aFyD4KhJvcFQx8K7K6vFNUd',
-      database: process.env.DATABASE_URL && process.env.DATABASE_URL.split('/')[3] || process.env.DB_NAME || 'vinyls',
+      username: 'user_vinyls',
+      password: 'kGHd9Y2d6aFyD4KhJvcFQx8K7K6vFNUd',
+      database: 'vinyls',
       entities: [Album, CollectorAlbum, Band, Collector, Comment, Musician, Performer, PerformerPrize, Prize, Track,],
-      dropSchema: false,
+      dropSchema: true,
       synchronize: true,
       keepConnectionAlive: true,
       migrations: [__dirname + '/migration/**/*{.ts,.js}'],
-      migrationsRun: true,
-      ssl: { rejectUnauthorized: false }
-    }),
+      migrationsRun: false,
+    }),   
+    
     RecordLabelModule,
     PrizeModule,
     TrackModule,
