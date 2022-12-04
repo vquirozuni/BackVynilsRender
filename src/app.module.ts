@@ -32,6 +32,7 @@ import { CollectorPerformerModule } from './collectorperformer/collectorperforme
 import { AlbumBandModule } from './albumband/albumband.module';
 import { AlbumMusicianModule } from './albummusician/albummusician.module';
 
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
