@@ -1,9 +1,9 @@
 {
     "type": "postgres",
-    "host": "dpg-ce4ocr1gp3jkq2r02c9g-a",
+    "host": "localhost",
     "port": 5432,
-    "username": "user_vinyls",
-    "password": "kGHd9Y2d6aFyD4KhJvcFQx8K7K6vFNUd",
+    "username": "postgres",
+    "password": "postgres",
     "database": "vinyls",
     "synchronize": false,
     "logging": false,
